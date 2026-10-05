@@ -31,7 +31,11 @@ cp .env.example .env            # 필요하면 LLM_MODEL 등을 수정
 ```bash
 uvicorn app.main:app --reload
 ```
-브라우저에서 http://127.0.0.1:8000/api/health 를 열면 서버와 LLM 연결 상태가 보입니다.
+브라우저에서 http://127.0.0.1:8000 을 열면 메모 화면이 나옵니다.
+- 메모 입력: Enter 전송, Shift+Enter 줄바꿈. TXT·PDF 는 '파일 올리기'로 올리면 빈 줄 기준 문단별로 저장됩니다.
+- 서버·LLM 상태: http://127.0.0.1:8000/api/health
+- 기록 일수·3일 충족 여부: http://127.0.0.1:8000/api/status
+- 메모는 `data/scene.db` (SQLite)에 저장되며 git 에는 올라가지 않습니다. 날짜는 Asia/Seoul 기준입니다.
 (자동 API 문서: http://127.0.0.1:8000/docs)
 
 ### Ollama 없이 실행 (mock)
@@ -48,4 +52,5 @@ pytest          # 항상 mock LLM 으로 실행되어 Ollama 가 필요 없습�
 | LLM_PROVIDER | ollama | `ollama` 또는 `mock` |
 | LLM_MODEL | exaone3.5:7.8b | 대안: `qwen2.5:7b` |
 | EMBED_MODEL | bge-m3 | 임베딩 모델 |
+| DATA_DIR | data | 메모 DB 저장 폴더 |
 | OLLAMA_HOST | http://localhost:11434 | Ollama 주소 |

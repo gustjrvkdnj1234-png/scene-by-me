@@ -1,5 +1,6 @@
 """환경 설정(.env) 로딩."""
 import os
+from pathlib import Path
 from dataclasses import dataclass
 
 from dotenv import load_dotenv
@@ -14,6 +15,7 @@ class Settings:
     llm_model: str
     embed_model: str
     llm_timeout: float
+    data_dir: Path
 
 
 def get_settings() -> Settings:
@@ -24,4 +26,5 @@ def get_settings() -> Settings:
         llm_model=os.getenv("LLM_MODEL", "exaone3.5:7.8b"),
         embed_model=os.getenv("EMBED_MODEL", "bge-m3"),
         llm_timeout=float(os.getenv("LLM_TIMEOUT", "120")),
+        data_dir=Path(os.getenv("DATA_DIR", "data")),
     )

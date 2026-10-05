@@ -29,9 +29,9 @@ CLAUDE.md, docs/PRD.md, docs/ARCHITECTURE.md, docs/ROADMAP.md 를 먼저 읽어�
 
 ## Phase 1. 메모 입력 (F1)
 
-- [ ] memos 테이블, 메모 저장·목록 API
-- [ ] TXT·PDF 업로드
-- [ ] 채팅형 메모 화면
+- [x] memos 테이블, 메모 저장·목록 API
+- [x] TXT·PDF 업로드
+- [x] 채팅형 메모 화면
 
 ```
 CLAUDE.md 와 docs 문서를 읽고 ROADMAP Phase 1만 진행해줘.

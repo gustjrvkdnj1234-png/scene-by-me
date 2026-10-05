@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>씬바이미 · 메모</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="top">
+    <h1>씬바이미</h1>
+    <p id="progress" class="progress">오늘의 한 줄을 적어보세요</p>
+  </header>
+
+  <main id="notebook" class="notebook" aria-live="polite">
+    <p id="empty" class="empty">아직 적힌 메모가 없어요.<br>오늘 있었던 일, 들은 말, 문득 든 생각, 아무거나 괜찮아요.</p>
+  </main>
+
+  <form id="form" class="composer">
+    <p id="error" class="error" hidden></p>
+    <textarea id="input" rows="2" placeholder="오늘은 무슨 일이 있었나요?" maxlength="20000"></textarea>
+    <div class="actions">
+      <label class="upload" title="TXT 또는 PDF 파일 올리기">
+        파일 올리기
+        <input id="file" type="file" accept=".txt,.pdf" hidden>
+      </label>
+      <span class="hint">Enter 전송 · Shift+Enter 줄바꿈</span>
+      <button id="send" type="submit">적어두기</button>
+    </div>
+  </form>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

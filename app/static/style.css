@@ -1,0 +1,52 @@
+:root {
+  --paper: #fbf6ec;
+  --paper-edge: #efe5d0;
+  --ink: #3b3128;
+  --ink-soft: #8a7b6a;
+  --line: #e6dac2;
+  --accent: #b5683c;
+  --accent-soft: #f1dfcf;
+  --err: #b0392b;
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+  display: flex; flex-direction: column; max-width: 720px; margin: 0 auto;
+  background: var(--paper); color: var(--ink);
+  font-family: "Nanum Myeongjo", "Apple SD Gothic Neo", serif; line-height: 1.8;
+}
+.top { padding: 20px 24px 12px; border-bottom: 1px solid var(--line); }
+.top h1 { margin: 0; font-size: 1.3rem; letter-spacing: .05em; }
+.progress { margin: 2px 0 0; font-size: .85rem; color: var(--ink-soft); }
+
+.notebook {
+  flex: 1; overflow-y: auto; padding: 8px 24px 24px;
+  background-image: repeating-linear-gradient(transparent, transparent 31px, var(--line) 32px);
+  background-attachment: local;
+}
+.empty { margin-top: 48px; text-align: center; color: var(--ink-soft); }
+.day {
+  margin: 28px 0 6px; font-size: .8rem; color: var(--accent); letter-spacing: .08em;
+  border-bottom: 1px dashed var(--accent); padding-bottom: 2px;
+}
+.memo { margin: 10px 0; padding: 0 2px; white-space: pre-wrap; word-break: break-word; }
+.memo time { display: block; font-size: .72rem; color: var(--ink-soft); }
+.memo.new { animation: settle .5s ease; }
+@keyframes settle { from { opacity: 0; transform: translateY(6px); } }
+
+.composer { padding: 12px 24px 18px; background: var(--paper-edge); border-top: 1px solid var(--line); }
+textarea {
+  width: 100%; resize: none; padding: 10px 12px; font: inherit; color: inherit;
+  background: var(--paper); border: 1px solid var(--line); border-radius: 8px;
+}
+textarea:focus { outline: 2px solid var(--accent-soft); border-color: var(--accent); }
+.actions { display: flex; align-items: center; gap: 12px; margin-top: 8px; }
+.hint { flex: 1; font-size: .75rem; color: var(--ink-soft); text-align: right; }
+.upload, button {
+  font: inherit; font-size: .85rem; padding: 6px 14px; border-radius: 16px; cursor: pointer;
+  border: 1px solid var(--accent); color: var(--accent); background: transparent;
+}
+button { background: var(--accent); color: #fff; }
+button:disabled { opacity: .5; cursor: default; }
+.error { margin: 0 0 8px; font-size: .85rem; color: var(--err); }
+@media (max-width: 480px) { .hint { display: none; } .actions { justify-content: space-between; } }
