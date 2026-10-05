@@ -1,16 +1,16 @@
 # ROADMAP: 씬바이미 PoC
 
-각 Phase는 Claude Code(웹)에 아래 코드블럭을 그대로 붙여 넣어 요청한다.
+각 Phase는 클로드 코드에 아래 코드블럭을 그대로 붙여 넣어 요청한다.
 한 번에 한 Phase씩, 완료 후 맥에서 실행 확인하고 다음으로 넘어간다.
 
 ---
 
 ## Phase 0. 프로젝트 뼈대
 
-- [ ] 폴더 구조, requirements.txt, .env.example, .gitignore
-- [ ] LLM 공통 클라이언트 (ollama / mock)
-- [ ] FastAPI 실행 + 헬스체크
-- [ ] README 실행법
+- [x] 폴더 구조, requirements.txt, .env.example, .gitignore
+- [x] LLM 공통 클라이언트 (ollama / mock)
+- [x] FastAPI 실행 + 헬스체크
+- [x] README 실행법
 
 ```
 CLAUDE.md, docs/PRD.md, docs/ARCHITECTURE.md, docs/ROADMAP.md 를 먼저 읽어줘.

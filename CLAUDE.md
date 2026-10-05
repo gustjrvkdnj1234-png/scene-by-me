@@ -12,8 +12,8 @@
 
 - 운영자는 연극영화 전공, AI 개발자. 코드 전문가는 아니므로 변경 사항은 "무엇을, 왜" 바꿨는지 한국어로 짧게 설명할 것.
 - 실행 환경: MacBook M1 Pro, RAM 16GB, Python 3.11
-- 작업 방식: Claude Code(웹)에서 개발 → GitHub 반영 → 로컬 맥에서 pull 후 실행
-- 따라서 웹 샌드박스에는 Ollama가 없다. 테스트는 mock LLM으로 돌아가야 한다.
+- 작업 방식: VS Code 클로드 코드로 로컬 맥에서 직접 개발, Ollama 실제 모델로 테스트 가능 (테스트 자동화는 mock 유지)
+- 자동 테스트(pytest)는 Ollama 없이도 돌아가도록 mock LLM을 사용한다.
 
 ## 기술 스택
 
@@ -43,4 +43,10 @@
 
 ## 실행 명령
 
-Phase 0 완료 후 여기에 실제 명령을 기록할 것.
+```bash
+source .venv/bin/activate              # 가상환경 (Python 3.11)
+uvicorn app.main:app --reload          # 서버 실행 → http://127.0.0.1:8000
+pytest                                 # 테스트 (mock LLM, Ollama 불필요)
+curl http://127.0.0.1:8000/api/health  # 헬스체크
+```
+- Ollama는 `brew services start ollama` 로 실행. Homebrew 는 `/opt/homebrew/bin` 에 있다.
